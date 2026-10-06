@@ -1,0 +1,35 @@
+# LOCAL AI FACTORY configuration (env vars override: MAX_ITERATIONS, LLM_PROVIDER, OLLAMA_MODEL ...)
+[factory]
+max_iterations = 50
+max_failures = 10
+max_runtime_minutes = 240
+max_task_retries = 5
+max_repairs = 2
+test_command = "auto"        # auto | any command, e.g. "npm test", "go test ./..."
+
+[llm]
+provider = "ollama"          # ollama | mock
+base_url = "http://localhost:11434"
+model = "auto"               # auto = pick best installed model
+timeout_seconds = 300
+
+[git]
+enabled = true
+auto_commit = true
+checkpoints = true
+
+[security]
+sandbox = true
+dangerous_commands = "blocked"
+block_at = "HIGH"            # MEDIUM | HIGH | BLOCKED
+command_timeout_seconds = 120
+max_delete_files = 20
+
+[agents]
+manager = true
+architect = true
+developer = true
+tester = true
+debugger = true
+reviewer = true
+qa = true
