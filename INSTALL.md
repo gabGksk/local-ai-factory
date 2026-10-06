@@ -39,3 +39,7 @@ Para fixar um: `OLLAMA_MODEL=llama3:8b` ou `model = "llama3:8b"` no `factory.tom
 local-ai-factory doctor    # deve terminar com READY
 pytest                     # suíte completa
 ```
+
+## Solução de problemas
+* `error in 'egg_base' option: 'src' does not exist`: o clone está incompleto (faltam `src/`, `tests/`, `scripts/`). Confira com `git ls-files src | Select-Object -First 3`; se vazio, o código não foi commitado/enviado ao repositório — faça `git add -A; git commit; git push` a partir da pasta completa.
+* O workflow `.github/workflows/ci.yml` roda a instalação, `pytest` e o fluxo `mock` em Windows e Linux a cada push.
